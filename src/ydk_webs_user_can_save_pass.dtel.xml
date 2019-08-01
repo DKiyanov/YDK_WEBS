@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>YDK_WEBS_USER_CAN_SAVE_PASS</ROLLNAME>
+    <DDLANGUAGE>R</DDLANGUAGE>
+    <DOMNAME>YDK_WEBS_USER_CAN_SAVE_PASS</DOMNAME>
+    <HEADLEN>39</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>18</SCRLEN2>
+    <SCRLEN3>39</SCRLEN3>
+    <DDTEXT>user can save password on mobile device</DDTEXT>
+    <REPTEXT>user can save password on mobile device</REPTEXT>
+    <SCRTEXT_S>save pass</SCRTEXT_S>
+    <SCRTEXT_M>user can save pass</SCRTEXT_M>
+    <SCRTEXT_L>user can save password on mobile device</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>user can save password on mobile device</DDTEXT>
+     <REPTEXT>user can save password on mobile device</REPTEXT>
+     <SCRTEXT_S>save pass</SCRTEXT_S>
+     <SCRTEXT_M>user can save pass</SCRTEXT_M>
+     <SCRTEXT_L>user can save password on mobile device</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

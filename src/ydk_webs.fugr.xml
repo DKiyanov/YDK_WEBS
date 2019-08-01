@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>web service</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LYDK_WEBSTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLYDK_WEBS</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>YDK_WEBS_MODIFY_USER</FUNCNAME>
+     <SHORT_TEXT>Создание/обновление пользователя</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>USR</PARAMETER>
+       <TYP>YDK_WEBS_USR</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>PASSWORD</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <TYP>STRING</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>INVALID_DATA</EXCEPTION>
+      </RSEXC>
+      <RSEXC>
+       <EXCEPTION>PASS_HASH_COLLISION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>USR</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Данные пользователя</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PASSWORD</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Пароль</STEXT>
+       <INDEX> 002</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>INVALID_DATA</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>invalid data</STEXT>
+       <INDEX> 003</INDEX>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>PASS_HASH_COLLISION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>hash collosion - set another password</STEXT>
+       <INDEX> 004</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
+     <FUNCNAME>YDK_WEBS_SAVE_LOG</FUNCNAME>
+     <UPDATE_TASK>1</UPDATE_TASK>
+     <SHORT_TEXT>update module for save log</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>LOG</PARAMETER>
+       <TYP>YDK_WEBS_LOG</TYP>
+      </RSIMP>
+     </IMPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>LOG</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>log</STEXT>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>E</LANGUAGE>
+    </item>
+   </I18N_TPOOL>
+  </asx:values>
+ </asx:abap>
+</abapGit>

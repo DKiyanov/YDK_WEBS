@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>YDKWEBS</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>system messages for working with mobile devices</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Действие &amp; &amp; &amp; не авторизовано</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Не поддерживаемый тип обработчика &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Обработчик &amp; &amp; &amp; не найден</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Не верное имя пользователя или пароль</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Устройство не авторизовано</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Выберите другой пароль</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Не корректный запрос &amp; данных ползователя</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Пароль должен быть не короче &amp; символов</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Акаунт &amp; не существует</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Пользователь &amp; уже существует</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>020</MSGNR>
+     <TEXT>Файл &amp; в SAP отсутствует</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>021</MSGNR>
+     <TEXT>не корректные параметры запроса</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>022</MSGNR>
+     <TEXT>Данные для таблицы &amp; отсутствуют</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>023</MSGNR>
+     <TEXT>Запрошенная строка &amp; находится за пределами имеющегося диапазона строк</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>024</MSGNR>
+     <TEXT>Не совпадает количество полей в имеющейся и добавляемой таблице</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>025</MSGNR>
+     <TEXT>Не указано количество полей в таблице</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>026</MSGNR>
+     <TEXT>количество ячеек не кратно количеству полей в таблице</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>027</MSGNR>
+     <TEXT>Средство &amp; &amp; поиска не определено</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>028</MSGNR>
+     <TEXT>Отчёт &amp; не найден</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>029</MSGNR>
+     <TEXT>Вариант &amp; для отчёта &amp; не найден</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>030</MSGNR>
+     <TEXT>Не поддерживаемый этим класом тип средства поиска</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>031</MSGNR>
+     <TEXT>Ошибка при получении данных из отчёта &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>032</MSGNR>
+     <TEXT>Не найден селекционный экран &amp; в отчёте &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>R</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <MSGNR>033</MSGNR>
+     <TEXT>Таблица &amp; уже существует</TEXT>
+    </T100>
+   </T100>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <T100T>
+    <T100T>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YDKWEBS</ARBGB>
+     <STEXT>system messages for working with mobile devices</STEXT>
+    </T100T>
+   </T100T>
+   <T100_TEXTS>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>001</MSGNR>
+     <TEXT>Action &amp; &amp; &amp; is not authorized</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>002</MSGNR>
+     <TEXT>Unsupported handler type &amp;</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>003</MSGNR>
+     <TEXT>Handler &amp; &amp; &amp; not found</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>004</MSGNR>
+     <TEXT>The username or password you entered is incorrect</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>005</MSGNR>
+     <TEXT>Device not authorized</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>006</MSGNR>
+     <TEXT>Choose another password</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>007</MSGNR>
+     <TEXT>Invalid query &amp; of user data</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>008</MSGNR>
+     <TEXT>Password should not be shorter &amp; characters</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>009</MSGNR>
+     <TEXT>Account &amp; does not exist</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>010</MSGNR>
+     <TEXT>User &amp; already exists</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>020</MSGNR>
+     <TEXT>File &amp; is missing in the SAP system</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>021</MSGNR>
+     <TEXT>invalid request parameters</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>022</MSGNR>
+     <TEXT>No data for table &amp;</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>023</MSGNR>
+     <TEXT>Requested string &amp; is out of range</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>024</MSGNR>
+     <TEXT>The number of fields in the existing and added table does not match</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>025</MSGNR>
+     <TEXT>The number of fields in the table is not specified.</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>026</MSGNR>
+     <TEXT>the number of cells is not aliquot to the number of fields in the table</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>027</MSGNR>
+     <TEXT>Search help &amp; &amp; is not defined</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>028</MSGNR>
+     <TEXT>Report &amp; not found</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>029</MSGNR>
+     <TEXT>Variant &amp; for report &amp; not found</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>030</MSGNR>
+     <TEXT>Search help type not supported by this class</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>031</MSGNR>
+     <TEXT>Error on retrieving data from report &amp;</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>032</MSGNR>
+     <TEXT>Selection screen not found &amp; in report &amp;</TEXT>
+    </item>
+    <item>
+     <SPRSL>E</SPRSL>
+     <MSGNR>033</MSGNR>
+     <TEXT>Table &amp; already exists</TEXT>
+    </item>
+   </T100_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
