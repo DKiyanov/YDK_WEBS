@@ -1,4 +1,5 @@
-###This package is the server part for the interaction of a mobile application with the SAP ERP system. 
+### This package is the server part for the interaction of a mobile application with the SAP ERP system. 
+
 Corresponding mobile app package developed on Flutter (link to the package will be added later).
 
 Allows respond to requests from a mobile application.
@@ -127,7 +128,7 @@ Class contains:
 
 Via this program implements creation and editing of user account. If at the moment of creation of account there is no tick in front of inscription «secondary account» there must have to be account (SU01) with the same name in the SAP system.
 
-### Secondary accounts
+## Secondary accounts
 
 **Warning** – this paragraph is pretty controversial and might contradict to licensing policy of SAP. So I recommend you to read carefully the final part of license for that package
 
