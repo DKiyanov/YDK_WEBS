@@ -35,8 +35,7 @@ private section.
 
   methods GET_ACTION
     importing
-      !PROC_TYPE type STRING
-      !PROC_ID type STRING
+      !HANDLER_ID type STRING
       !ACTION type STRING
     returning
       value(ACT) type ref to YDK_WEBS_ACT .
@@ -144,32 +143,30 @@ CLASS YDK_CL_WEBS IMPLEMENTATION.
 
     CLEAR act.
 
-    READ TABLE itact ASSIGNING <act> WITH KEY proc_type = proc_type proc_id = proc_id action = action BINARY SEARCH.
+    READ TABLE itact ASSIGNING <act> WITH KEY handler_id = handler_id action = action BINARY SEARCH.
     IF sy-subrc = 0.
       GET REFERENCE OF <act> INTO act.
       RETURN.
     ENDIF.
 
-    READ TABLE itact WITH KEY proc_type = proc_type proc_id = proc_id BINARY SEARCH TRANSPORTING NO FIELDS.
+    READ TABLE itact WITH KEY handler_id = handler_id BINARY SEARCH TRANSPORTING NO FIELDS.
     IF sy-subrc = 0.
       RETURN.
     ENDIF.
 
     SELECT * APPENDING TABLE itact
       FROM ydk_webs_act
-     WHERE proc_type = proc_type
-       AND proc_id   = proc_id.
+     WHERE handler_id   = handler_id.
 
     IF sy-subrc <> 0.
       APPEND INITIAL LINE TO itact ASSIGNING <act>.
-      <act>-proc_type = proc_type.
-      <act>-proc_id = proc_id.
-      SORT itact BY proc_type proc_id action.
+      <act>-handler_id = handler_id.
+      SORT itact BY handler_id action.
       RETURN.
     ENDIF.
 
-    SORT itact BY proc_type proc_id action.
-    READ TABLE itact ASSIGNING <act> WITH KEY proc_type = proc_type proc_id = proc_id action = action BINARY SEARCH.
+    SORT itact BY handler_id action.
+    READ TABLE itact ASSIGNING <act> WITH KEY handler_id = handler_id action = action BINARY SEARCH.
 
     IF sy-subrc <> 0.
       RETURN.
@@ -216,8 +213,7 @@ ENHANCEMENT-POINT YDK_WEBS_SYS SPOTS YDK_WEBS_PASSWORD_VALIDATION .
   METHOD if_http_extension~handle_request.
     DATA: xdata TYPE xstring.
 
-    DATA: proc_type TYPE string.
-    DATA: proc_id TYPE string.
+    DATA: handler_id TYPE string.
     DATA: action TYPE string.
     DATA: action_data TYPE string.
 
@@ -228,20 +224,18 @@ ENHANCEMENT-POINT YDK_WEBS_SYS SPOTS YDK_WEBS_PASSWORD_VALIDATION .
 
     DATA: xout TYPE xstring.
 
-    proc_type = server->request->get_header_field( 'X-YDK-PROC_TYPE' ).
-    proc_id   = server->request->get_header_field( 'X-YDK-PROC_ID' ).
+    handler_id   = server->request->get_header_field( 'X-YDK-HANDLER_ID' ).
     action    = server->request->get_header_field( 'X-YDK-ACTION' ).
 
     xdata = server->request->get_data( ).
     convert_in( EXPORTING xstr = xdata CHANGING str = action_data ).
 
-    TRANSLATE proc_type TO UPPER CASE.
-    TRANSLATE proc_id   TO UPPER CASE.
+    TRANSLATE handler_id   TO UPPER CASE.
     TRANSLATE action    TO UPPER CASE.
 
     DO 1 TIMES.
       IF starting = abap_true.
-        IF proc_type = 'SYS' AND proc_id = 'SYS' AND action = 'ENTRY'.
+        IF handler_id = 'SYSTEM' AND action = 'ENTRY'.
           return_data = session_start( action_data ).
           IF return_data IS NOT INITIAL.
             return_status = status_err.
@@ -259,7 +253,7 @@ ENHANCEMENT-POINT YDK_WEBS_SYS SPOTS YDK_WEBS_PASSWORD_VALIDATION .
         EXIT.
       ENDIF.
 
-      IF proc_type = 'SYS'.
+      IF handler_id = 'SYSTEM'.
         CASE action.
           WHEN 'LOGOFF'.
             server->logoff( ).
@@ -275,22 +269,21 @@ ENHANCEMENT-POINT YDK_WEBS_SYS SPOTS YDK_WEBS_PASSWORD_VALIDATION .
         EXIT.
       ENDIF.
 
-      act = get_action( EXPORTING proc_type = proc_type proc_id = proc_id action = action ).
+      act = get_action( EXPORTING handler_id = handler_id action = action ).
       IF act IS INITIAL.
         return_status = status_err.
-        MESSAGE e001(ydkwebs) WITH proc_type proc_id action INTO return_data. " Действие & & & не авторизовано
+        MESSAGE e001(ydkwebs) WITH handler_id action INTO return_data. " Действие & & & не авторизовано
         EXIT.
       ENDIF.
 
       IF act->savelog = abap_true.
         DATA: log TYPE ydk_webs_log.
 
-        log-wsusr     = '$' && sy-uname.
-        log-cpudt     = sy-datum.
-        log-cputm     = sy-uzeit.
-        log-proc_type = proc_type.
-        log-proc_id   = proc_id.
-        log-action    = action.
+        log-wsusr      = '$' && sy-uname.
+        log-cpudt      = sy-datum.
+        log-cputm      = sy-uzeit.
+        log-handler_id = handler_id.
+        log-action     = action.
 
         CALL FUNCTION 'YDK_WEBS_SAVE_LOG' IN UPDATE TASK
           EXPORTING
@@ -299,15 +292,21 @@ ENHANCEMENT-POINT YDK_WEBS_SYS SPOTS YDK_WEBS_PASSWORD_VALIDATION .
         COMMIT WORK.
       ENDIF.
 
+      DATA: handler_name TYPE ydk_webs_act-handler_name.
+      handler_name = act->handler_name.
+      IF handler_name IS INITIAL.
+        handler_name = act->handler_id.
+      ENDIF.
+
       return_status = '!@!'.
       DATA: exc_ref TYPE REF TO cx_sy_dyn_call_error.
 
-      CASE proc_type.
-        WHEN 'PROG'.
-          PERFORM (action) IN PROGRAM (proc_id) USING action_data CHANGING return_status return_data IF FOUND.
-        WHEN 'CLAS'.
+      CASE act->handler_type.
+        WHEN 'S'.
+          PERFORM (action) IN PROGRAM (handler_name) USING action_data CHANGING return_status return_data IF FOUND.
+        WHEN 'M' OR space.
           TRY.
-              CALL METHOD (proc_id)=>(action)
+              CALL METHOD (handler_name)=>(action)
                 EXPORTING
                   action_data   = action_data
                 IMPORTING
@@ -317,15 +316,11 @@ ENHANCEMENT-POINT YDK_WEBS_SYS SPOTS YDK_WEBS_PASSWORD_VALIDATION .
               return_status = status_err.
               return_data = exc_ref->get_text( ).
           ENDTRY.
-        WHEN OTHERS.
-          return_status = status_err.
-          MESSAGE e002(ydkwebs) WITH proc_type INTO return_data. " Не поддерживаемый тип обработчика &
-          EXIT.
       ENDCASE.
 
       IF return_status = '!@!'.
         return_status = status_err.
-        MESSAGE e003(ydkwebs) WITH proc_type proc_id action INTO return_data. " Обработчик & & & не найден
+        MESSAGE e003(ydkwebs) WITH handler_id action INTO return_data. " Обработчик & & не найден
         EXIT.
       ENDIF.
     ENDDO.

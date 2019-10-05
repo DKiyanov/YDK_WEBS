@@ -1,6 +1,6 @@
 *---------------------------------------------------------------------*
 *    program for:   TABLEFRAME_YDK_WEBS_TAB
-*   generation date: 13.07.2019 at 19:28:12
+*   generation date: 05.10.2019 at 20:33:55
 *   view maintenance generator version: #001407#
 *---------------------------------------------------------------------*
 FUNCTION TABLEFRAME_YDK_WEBS_TAB       .

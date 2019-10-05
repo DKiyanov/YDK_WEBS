@@ -10,7 +10,7 @@
    <FUNCTIONS>
     <item>
      <FUNCNAME>YDK_WEBS_MODIFY_USER</FUNCNAME>
-     <SHORT_TEXT>Создание/обновление пользователя</SHORT_TEXT>
+     <SHORT_TEXT>Create/update user</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>USR</PARAMETER>
@@ -34,13 +34,13 @@
       <RSFDO>
        <PARAMETER>USR</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Данные пользователя</STEXT>
+       <STEXT>User data</STEXT>
        <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>PASSWORD</PARAMETER>
        <KIND>P</KIND>
-       <STEXT>Пароль</STEXT>
+       <STEXT>Password</STEXT>
        <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>

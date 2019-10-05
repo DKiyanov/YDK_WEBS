@@ -1,6 +1,8 @@
 ### This package is the server part for the interaction of a mobile application with the SAP ERP system. 
 
-Corresponding mobile app package developed on Flutter (link to the package will be added later).
+Corresponding mobile app package developed on Flutter [sap_connect](https://pub.dev/packages/sap_connect)
+
+To install this package on SAP server, use [abapGit](https://docs.abapgit.org/)
 
 Allows respond to requests from a mobile application.
 There are the minimum necessary tools for administration.
@@ -27,6 +29,10 @@ There are the minimum necessary tools for administration.
 
 - YDK_WEBS_USR        User maintenance
 
+**Transaction:**
+
+- YDK_WEBS_USR        User maintenance
+
 **Enhancement point:**
 
 - YDK_WEBS_PASSWORD_VALIDATION        Condition for checking password
@@ -47,28 +53,18 @@ Method  IF_HTTP_EXTENSION~HANDLE_REQUEST is called by  ICF-service YDKWEBS upon 
 
 In the request coming from mobile device must have following headers:
 
-- X-YDK-PROC_TYPE         Ц type of handler
-- X-YDK-PROC_ID                Ц identifier of handler
-- X-YDK-ACTION                 Ц identifier of action/command
+- X-YDK-HANDLER_ID  Ц identifier of handler
+- X-YDK-ACTION      Ц identifier of action/command
 
 The body of request keeps data required for execution of action/command
 
-Possible types of handlers (X-YDK-PROC_TYPE):
+ѕо полученным данным в таблице YDK_WEBS_ACT определ€етс€ объект SAP с помощью которого будет выполнена обработка данных
+Ёто может быть вызов статического метода класса или вызов подпрограммы в программе:
 
-- ЂSYSї - system calls are directly processed by class YDK_CL_WEBS
-- ЂCLASї -  calls static method of class
+Based on received HANDLER_ID and ACTION, the corresponding entry is searched in the table YDK_WEBS_ACT, and determined an SAP object with which data will be processed
+It can be a call to a class-method of a class or a call to a subroutine in a program
 
-  - X-YDK-PROC_ID Ц contains name of class
-  - X-YDK-ACTION Ц contains name of method
-
-- ЂPROGї - calls subroutine (form) in the program
-
-  - X-YDK-PROC_ID Ц contains name of program
-  - X-YDK-ACTION Ц contains name of subroutine (form)
-
-According to received data performs call of static method or subroutine, before the call performs check of availability of appropriate record in the table YDK_WEBS_ACT
-
-Called static method of class for handler&#39;s type ЂCLASї must have a certain set of incoming and outgoing parameters:
+Called class-method of class must have a certain set of incoming and outgoing parameters:
 ``` ABAP
   CLASS-METHODS <name of method>
     IMPORTING
@@ -77,7 +73,7 @@ Called static method of class for handler&#39;s type ЂCLASї must have a certain 
       !return_status TYPE string
       !return_data TYPE string.
 ```
-Called subroutine for handler&#39;s type ЂPROGї must have a certain set of incoming and changing parameters:
+Called subroutine must have a certain set of incoming and changing parameters:
 ``` ABAP
   FORM <name of form>
     USING
@@ -86,14 +82,13 @@ Called subroutine for handler&#39;s type ЂPROGї must have a certain set of incom
       return_status TYPE string
       return_data TYPE string.
 ```
-Incoming parameter  action_data contains the string with the body of received request. Usually it is JSON
+Incoming parameter action_data contains the string with the body of received request. Usually it is JSON
 
-Return parameter  return_status must contain result status of request processing. Usually it is:
-
+Return parameter return_status must contain result status of request processing. Usually it is:
 - ЂOKї - the processing of request was successful, constant YDK_CL_WEBS_ACTION=>STATUS_OK
 - ЂERRї - processing of request with error, constant YDK_CL_WEBS_ACTION=>STATUS_ERR. In that case parameter return_data **must contain the string with the description of error**.
 
-Return parameter in the case of successful request processing contains string with the result of request processing. Usually it is JSON
+Return parameter return_data in the case of successful request processing contains string with the result of request processing. Usually it is JSON
 
 ### Class YDK_CL_WEBS_ACTION Abstract for action
 
@@ -108,7 +103,7 @@ Class contains:
 - STATUS_OK Ц processing of request was successful
 - STATUS_ERR Ц processing of request was with error
 
-**Methods**** :**
+**Methods:**
 
 - FROM_JSON Ц transfer data from incoming string contains JSON into the outgoing structure
 - GET_JSON Ц transfer data from incoming structure into outgoing string in format JSON
@@ -120,11 +115,17 @@ Class contains:
 
 **YDK_WEBS_DEV** Ц Identifiers of apps. If field YDK_WEBS_USR-DEVCT is not empty Ц record in the table is automatically formed upon users connection to the SAP service. Upon connection to the server the amount of devices used by user is controlled so it could not exceed amount of devices specified in YDK_WEBS_USR-DEVCT
 
-**YDK_WEBS_ACT** Ц Contains combination: handler type, handler identifier, identifier of action/command Ц which can be called. Upon arrival of server request - parameters of request are checked for availability in that table. If note is absent the error with description Ђaction is not authorizedї is returned as an answer to request
+**YDK_WEBS_ACT** Ц Contains combinations of handler identifier and identifier of action/command Ц which determine which SAP object will be called to process the request. 
+If note is absent the error with description Ђaction is not authorizedї is returned as an answer to request<br>
+field HANDLER_TYPE - contains the type of the called object:
+* "M" or empty - field HANDLER_NAME contain class name; field ACTION contain name of class-method
+* "S" - field HANDLER_NAME contain program name; field ACTION contain name of subroutine (form)
 
-**YDK_WEBS_LOG** Ц Log of implementation operations by user. Log is writes for operations for which field YDK_WEBS_ACT- SAVELOG = abap_true. Login, date and time of operation are written
+if HANDLER_NAME is empty HANDLER_ID value is used
 
-### Program YDK_WEBS_USR
+**YDK_WEBS_LOG** Ц Log of implementation operations by user. Log is writes for operations for which field YDK_WEBS_ACT-SAVELOG = abap_true. Login, date and time of operation are written
+
+### Transaction/Program YDK_WEBS_USR
 
 Via this program implements creation and editing of user account. If at the moment of creation of account there is no tick in front of inscription Ђsecondary accountї there must have to be account (SU01) with the same name in the SAP system.
 
@@ -154,3 +155,49 @@ Controlled parameters of password:
 - Length
 - Amount of numerals
 - Amountfnot-lettersymbols
+
+### Example
+An example of use is set with the package, class YDK_CL_WEBS_FLIGHTS, see folder Example
+The sflight DB can be filled with test data by running the programs SAPBC_DATA_GENERATOR and SFLIGHT_DATA_GEN
+``` ABAP
+CLASS YDK_CL_WEBS_FLIGHTS IMPLEMENTATION.
+  METHOD get_flights.
+*    importing
+*      !ACTION_DATA type STRING
+*    exporting
+*      !RETURN_STATUS type STRING
+*      !RETURN_DATA type STRING .
+
+* The sflight DB can be filled with test data by running the programs SAPBC_DATA_GENERATOR and SFLIGHT_DATA_GEN
+
+    TYPES: BEGIN OF ty_query,
+             carrid TYPE RANGE OF sflight-carrid,
+             connid TYPE RANGE OF sflight-connid,
+             fldate TYPE RANGE OF sflight-fldate,
+           END   OF ty_query.
+
+    DATA: query TYPE ty_query.
+
+* to simplify the work with the request data, they are loaded into the corresponding structure
+    from_json( EXPORTING json = action_data CHANGING data = query ). 
+
+    DATA: lt_sflight TYPE STANDARD TABLE OF sflight.
+
+    SELECT * INTO TABLE lt_sflight
+      FROM sflight
+     WHERE carrid IN query-carrid
+       AND connid IN query-connid
+       AND fldate IN query-fldate.
+	
+    IF lt_sflight IS INITIAL.
+* return error message	
+      return_data = 'No flights found by query criteria'.
+      return_status = status_err.
+      RETURN.
+    ENDIF.
+	
+* return query results, return_status is set to STATUS_OK
+    get_json( EXPORTING data = lt_sflight IMPORTING return_status = return_status return_data = return_data ).
+  ENDMETHOD.
+ENDCLASS.
+```

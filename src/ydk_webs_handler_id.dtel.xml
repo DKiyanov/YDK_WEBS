@@ -3,18 +3,12 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD04V>
-    <ROLLNAME>YDK_WEBS_PROC_ID</ROLLNAME>
-    <DDLANGUAGE>R</DDLANGUAGE>
+    <ROLLNAME>YDK_WEBS_HANDLER_ID</ROLLNAME>
     <DOMNAME>CHAR30</DOMNAME>
     <HEADLEN>30</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
-    <SCRLEN2>15</SCRLEN2>
+    <SCRLEN2>17</SCRLEN2>
     <SCRLEN3>20</SCRLEN3>
-    <DDTEXT>processor name</DDTEXT>
-    <REPTEXT>processor name</REPTEXT>
-    <SCRTEXT_S>proc name</SCRTEXT_S>
-    <SCRTEXT_M>processor name</SCRTEXT_M>
-    <SCRTEXT_L>processor name</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>
@@ -24,11 +18,11 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>E</DDLANGUAGE>
-     <DDTEXT>processor name</DDTEXT>
-     <REPTEXT>processor name</REPTEXT>
-     <SCRTEXT_S>proc name</SCRTEXT_S>
-     <SCRTEXT_M>processor name</SCRTEXT_M>
-     <SCRTEXT_L>processor name</SCRTEXT_L>
+     <DDTEXT>Handler identifer</DDTEXT>
+     <REPTEXT>Handler identifer</REPTEXT>
+     <SCRTEXT_S>Handler id</SCRTEXT_S>
+     <SCRTEXT_M>Handler identifer</SCRTEXT_M>
+     <SCRTEXT_L>Handler identifer</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

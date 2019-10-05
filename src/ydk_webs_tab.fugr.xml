@@ -315,7 +315,7 @@
        <ELEMENT_OF>SCREEN</ELEMENT_OF>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
-       <LENGTH>110</LENGTH>
+       <LENGTH>141</LENGTH>
        <HEIGHT>059</HEIGHT>
        <C_RESIZE_V>X</C_RESIZE_V>
        <C_RESIZE_H>X</C_RESIZE_H>
@@ -330,7 +330,7 @@
        <TC_SEL_LNS>MULTIPLE</TC_SEL_LNS>
        <TC_SEL_CLS>NONE</TC_SEL_CLS>
        <TC_LSEL_CL>X</TC_LSEL_CL>
-       <TC_FIXCOL>003</TC_FIXCOL>
+       <TC_FIXCOL>002</TC_FIXCOL>
       </RPY_DYCATT>
      </CONTAINERS>
      <FIELDS>
@@ -400,27 +400,10 @@
        <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
        <CONT_NAME>TCTRL_YDK_WEBS_ACT</CONT_NAME>
        <TYPE>TEXT</TYPE>
-       <NAME>*YDK_WEBS_ACT-PROC_TYPE</NAME>
-       <TEXT>proc_type_______________________________</TEXT>
+       <NAME>*YDK_WEBS_ACT-HANDLER_ID</NAME>
+       <TEXT>Handler_identifer_______________________</TEXT>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
-       <LENGTH>040</LENGTH>
-       <VISLENGTH>030</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <FORMAT>CHAR</FORMAT>
-       <FROM_DICT>X</FROM_DICT>
-       <MODIFIC>1</MODIFIC>
-       <REQU_ENTRY>N</REQU_ENTRY>
-       <TC_HEADING>X</TC_HEADING>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
-       <CONT_NAME>TCTRL_YDK_WEBS_ACT</CONT_NAME>
-       <TYPE>TEXT</TYPE>
-       <NAME>*YDK_WEBS_ACT-PROC_ID</NAME>
-       <TEXT>processor_name__________________________</TEXT>
-       <LINE>001</LINE>
-       <COLUMN>002</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>030</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -437,7 +420,7 @@
        <NAME>*YDK_WEBS_ACT-ACTION</NAME>
        <TEXT>action_name_____________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>003</COLUMN>
+       <COLUMN>002</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>030</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -454,13 +437,47 @@
        <NAME>*YDK_WEBS_ACT-SAVELOG</NAME>
        <TEXT>save_log________________________________</TEXT>
        <LINE>001</LINE>
-       <COLUMN>004</COLUMN>
+       <COLUMN>003</COLUMN>
        <LENGTH>040</LENGTH>
        <VISLENGTH>010</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <FORMAT>CHAR</FORMAT>
        <FROM_DICT>X</FROM_DICT>
        <MODIFIC>1</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <TC_HEADING>X</TC_HEADING>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_YDK_WEBS_ACT</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>*YDK_WEBS_ACT-HANDLER_TYPE</NAME>
+       <TEXT>HandlerTyp______________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>004</COLUMN>
+       <LENGTH>040</LENGTH>
+       <VISLENGTH>030</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>1</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <TC_HEADING>X</TC_HEADING>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_YDK_WEBS_ACT</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>*YDK_WEBS_ACT-HANDLER_NAME</NAME>
+       <TEXT>Handler_name____________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>005</COLUMN>
+       <LENGTH>040</LENGTH>
+       <VISLENGTH>030</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>V</MODIFIC>
        <REQU_ENTRY>N</REQU_ENTRY>
        <TC_HEADING>X</TC_HEADING>
       </RPY_DYFATC>
@@ -482,32 +499,11 @@
        <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
        <CONT_NAME>TCTRL_YDK_WEBS_ACT</CONT_NAME>
        <TYPE>TEMPLATE</TYPE>
-       <NAME>YDK_WEBS_ACT-PROC_TYPE</NAME>
-       <TEXT>____</TEXT>
-       <DROPDOWN>L</DROPDOWN>
-       <ROLLING>X</ROLLING>
-       <LINE>001</LINE>
-       <COLUMN>001</COLUMN>
-       <LENGTH>004</LENGTH>
-       <VISLENGTH>015</VISLENGTH>
-       <HEIGHT>001</HEIGHT>
-       <GROUP1>KEY</GROUP1>
-       <FORMAT>CHAR</FORMAT>
-       <FROM_DICT>X</FROM_DICT>
-       <MODIFIC>X</MODIFIC>
-       <OUTPUT_FLD>X</OUTPUT_FLD>
-       <REQU_ENTRY>N</REQU_ENTRY>
-       <DICT_I_VAL>X</DICT_I_VAL>
-      </RPY_DYFATC>
-      <RPY_DYFATC>
-       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
-       <CONT_NAME>TCTRL_YDK_WEBS_ACT</CONT_NAME>
-       <TYPE>TEMPLATE</TYPE>
-       <NAME>YDK_WEBS_ACT-PROC_ID</NAME>
+       <NAME>YDK_WEBS_ACT-HANDLER_ID</NAME>
        <TEXT>______________________________</TEXT>
        <ROLLING>X</ROLLING>
        <LINE>001</LINE>
-       <COLUMN>002</COLUMN>
+       <COLUMN>001</COLUMN>
        <LENGTH>030</LENGTH>
        <VISLENGTH>015</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -524,11 +520,10 @@
        <TYPE>TEMPLATE</TYPE>
        <NAME>YDK_WEBS_ACT-ACTION</NAME>
        <TEXT>______________________________</TEXT>
-       <ROLLING>X</ROLLING>
        <LINE>001</LINE>
-       <COLUMN>003</COLUMN>
+       <COLUMN>002</COLUMN>
        <LENGTH>030</LENGTH>
-       <VISLENGTH>015</VISLENGTH>
+       <VISLENGTH>030</VISLENGTH>
        <HEIGHT>001</HEIGHT>
        <GROUP1>KEY</GROUP1>
        <FORMAT>CHAR</FORMAT>
@@ -543,7 +538,7 @@
        <TYPE>CHECK</TYPE>
        <NAME>YDK_WEBS_ACT-SAVELOG</NAME>
        <LINE>001</LINE>
-       <COLUMN>004</COLUMN>
+       <COLUMN>003</COLUMN>
        <LENGTH>001</LENGTH>
        <VISLENGTH>010</VISLENGTH>
        <HEIGHT>001</HEIGHT>
@@ -553,6 +548,42 @@
        <INPUT_FLD>X</INPUT_FLD>
        <OUTPUT_FLD>X</OUTPUT_FLD>
        <DICT_I_VAL>X</DICT_I_VAL>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_YDK_WEBS_ACT</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>YDK_WEBS_ACT-HANDLER_TYPE</NAME>
+       <TEXT>_</TEXT>
+       <DROPDOWN>L</DROPDOWN>
+       <LINE>001</LINE>
+       <COLUMN>004</COLUMN>
+       <LENGTH>001</LENGTH>
+       <VISLENGTH>030</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>X</MODIFIC>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+       <DICT_I_VAL>X</DICT_I_VAL>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_YDK_WEBS_ACT</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>YDK_WEBS_ACT-HANDLER_NAME</NAME>
+       <TEXT>______________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>005</COLUMN>
+       <LENGTH>030</LENGTH>
+       <VISLENGTH>030</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>X</MODIFIC>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
       </RPY_DYFATC>
      </FIELDS>
      <FLOW_LOGIC>
@@ -596,16 +627,19 @@
        <LINE>CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>FIELD YDK_WEBS_ACT-PROC_TYPE .</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW>
-       <LINE>FIELD YDK_WEBS_ACT-PROC_ID .</LINE>
+       <LINE>FIELD YDK_WEBS_ACT-HANDLER_ID .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>FIELD YDK_WEBS_ACT-ACTION .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>FIELD YDK_WEBS_ACT-SAVELOG .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>FIELD YDK_WEBS_ACT-HANDLER_TYPE .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
+       <LINE>FIELD YDK_WEBS_ACT-HANDLER_NAME .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>MODULE SET_UPDATE_FLAG ON CHAIN-REQUEST.</LINE>
@@ -620,10 +654,7 @@
        <LINE>CHAIN.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>FIELD YDK_WEBS_ACT-PROC_TYPE .</LINE>
-      </RPY_DYFLOW>
-      <RPY_DYFLOW>
-       <LINE>FIELD YDK_WEBS_ACT-PROC_ID .</LINE>
+       <LINE>FIELD YDK_WEBS_ACT-HANDLER_ID .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>FIELD YDK_WEBS_ACT-ACTION .</LINE>
@@ -660,10 +691,10 @@
       <item>4</item>
       <item>4</item>
       <item>4</item>
-      <item>3</item>
-      <item>3</item>
-      <item>3</item>
       <item>4</item>
+      <item>3</item>
+      <item>3</item>
+      <item>3</item>
       <item>4</item>
       <item>4</item>
       <item>4</item>
