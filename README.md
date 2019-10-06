@@ -58,8 +58,8 @@ In the request coming from mobile device must have following headers:
 
 The body of request keeps data required for execution of action/command
 
-Based on received HANDLER_ID and ACTION, the corresponding entry is searched in the table YDK_WEBS_ACT, and determined an SAP object with which data will be processed
-It can be a call to a class-method of a class or a call to a subroutine in a program
+Based on received HANDLER_ID and ACTION, the corresponding entry is searched in the table YDK_WEBS_ACT, and determined an SAP object with which data will be processed.
+It can be a call to a class-method of a class or a call to a subroutine in a program.
 
 Called class-method of class must have a certain set of incoming and outgoing parameters:
 ``` ABAP
@@ -79,13 +79,13 @@ Called subroutine must have a certain set of incoming and changing parameters:
       return_status TYPE string
       return_data TYPE string.
 ```
-Incoming parameter action_data contains the string with the body of received request. Usually it is JSON
+Incoming parameter action_data contains the string with the body of received request. Usually it is JSON.
 
 Return parameter return_status must contain result status of request processing. Usually it is:
 - «OK» - the processing of request was successful, constant YDK_CL_WEBS_ACTION=>STATUS_OK
 - «ERR» - processing of request with error, constant YDK_CL_WEBS_ACTION=>STATUS_ERR. In that case parameter return_data **must contain the string with the description of error**.
 
-Return parameter return_data in the case of successful request processing contains string with the result of request processing. Usually it is JSON
+Return parameter return_data in the case of successful request processing contains string with the result of request processing. Usually it is JSON.
 
 ### Class YDK_CL_WEBS_ACTION Abstract for action
 
@@ -118,7 +118,7 @@ field HANDLER_TYPE - contains the type of the called object:
 * "M" or empty - field HANDLER_NAME contain class name; field HANDLER_ACTION contain name of class-method
 * "S" - field HANDLER_NAME contain program name; field HANDLER_ACTION contain name of subroutine (form)
 
-if HANDLER_NAME is empty HANDLER_ID value is used
+if HANDLER_NAME is empty HANDLER_ID value is used<br>
 if HANDLER_ACTION is empty ACTION  value is used
 
 **YDK_WEBS_LOG** – Log of implementation operations by user. Log is writes for operations for which field YDK_WEBS_ACT-SAVELOG = abap_true. Login, date and time of operation are written
@@ -155,7 +155,7 @@ Controlled parameters of password:
 - Amountfnot-lettersymbols
 
 ### Example
-An example of use is set with the package, class YDK_CL_WEBS_FLIGHTS, see folder Example
+An example of use is set with the package, class YDK_CL_WEBS_FLIGHTS, see folder Example.<br>
 The sflight DB can be filled with test data by running the programs SAPBC_DATA_GENERATOR and SFLIGHT_DATA_GEN
 ``` ABAP
 CLASS YDK_CL_WEBS_FLIGHTS IMPLEMENTATION.
