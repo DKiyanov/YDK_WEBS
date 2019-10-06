@@ -163,6 +163,20 @@ CLASS YDK_CL_WEBS IMPLEMENTATION.
       <act>-handler_id = handler_id.
       SORT itact BY handler_id action.
       RETURN.
+    ELSE.
+      LOOP AT itact ASSIGNING <act>.
+        IF <act>-handler_type IS INITIAL.
+          <act>-handler_type = 'M'.
+        ENDIF.
+
+        IF <act>-handler_name IS INITIAL.
+          <act>-handler_name = <act>-handler_id.
+        ENDIF.
+
+        IF <act>-handler_action IS INITIAL.
+          <act>-handler_action = <act>-action.
+        ENDIF.
+      ENDLOOP.
     ENDIF.
 
     SORT itact BY handler_id action.
@@ -292,21 +306,15 @@ ENHANCEMENT-POINT YDK_WEBS_SYS SPOTS YDK_WEBS_PASSWORD_VALIDATION .
         COMMIT WORK.
       ENDIF.
 
-      DATA: handler_name TYPE ydk_webs_act-handler_name.
-      handler_name = act->handler_name.
-      IF handler_name IS INITIAL.
-        handler_name = act->handler_id.
-      ENDIF.
-
       return_status = '!@!'.
       DATA: exc_ref TYPE REF TO cx_sy_dyn_call_error.
 
       CASE act->handler_type.
         WHEN 'S'.
-          PERFORM (action) IN PROGRAM (handler_name) USING action_data CHANGING return_status return_data IF FOUND.
-        WHEN 'M' OR space.
+          PERFORM (act->handler_action) IN PROGRAM (act->handler_name) USING action_data CHANGING return_status return_data IF FOUND.
+        WHEN 'M'.
           TRY.
-              CALL METHOD (handler_name)=>(action)
+              CALL METHOD (act->handler_name)=>(act->handler_action)
                 EXPORTING
                   action_data   = action_data
                 IMPORTING

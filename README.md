@@ -58,9 +58,6 @@ In the request coming from mobile device must have following headers:
 
 The body of request keeps data required for execution of action/command
 
-ѕо полученным данным в таблице YDK_WEBS_ACT определ€етс€ объект SAP с помощью которого будет выполнена обработка данных
-Ёто может быть вызов статического метода класса или вызов подпрограммы в программе:
-
 Based on received HANDLER_ID and ACTION, the corresponding entry is searched in the table YDK_WEBS_ACT, and determined an SAP object with which data will be processed
 It can be a call to a class-method of a class or a call to a subroutine in a program
 
@@ -118,10 +115,11 @@ Class contains:
 **YDK_WEBS_ACT** Ц Contains combinations of handler identifier and identifier of action/command Ц which determine which SAP object will be called to process the request. 
 If note is absent the error with description Ђaction is not authorizedї is returned as an answer to request<br>
 field HANDLER_TYPE - contains the type of the called object:
-* "M" or empty - field HANDLER_NAME contain class name; field ACTION contain name of class-method
-* "S" - field HANDLER_NAME contain program name; field ACTION contain name of subroutine (form)
+* "M" or empty - field HANDLER_NAME contain class name; field HANDLER_ACTION contain name of class-method
+* "S" - field HANDLER_NAME contain program name; field HANDLER_ACTION contain name of subroutine (form)
 
 if HANDLER_NAME is empty HANDLER_ID value is used
+if HANDLER_ACTION is empty ACTION  value is used
 
 **YDK_WEBS_LOG** Ц Log of implementation operations by user. Log is writes for operations for which field YDK_WEBS_ACT-SAVELOG = abap_true. Login, date and time of operation are written
 

@@ -315,7 +315,7 @@
        <ELEMENT_OF>SCREEN</ELEMENT_OF>
        <LINE>001</LINE>
        <COLUMN>001</COLUMN>
-       <LENGTH>141</LENGTH>
+       <LENGTH>172</LENGTH>
        <HEIGHT>059</HEIGHT>
        <C_RESIZE_V>X</C_RESIZE_V>
        <C_RESIZE_H>X</C_RESIZE_H>
@@ -484,6 +484,23 @@
       <RPY_DYFATC>
        <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
        <CONT_NAME>TCTRL_YDK_WEBS_ACT</CONT_NAME>
+       <TYPE>TEXT</TYPE>
+       <NAME>*YDK_WEBS_ACT-HANDLER_ACTION</NAME>
+       <TEXT>Handler_action__________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>006</COLUMN>
+       <LENGTH>040</LENGTH>
+       <VISLENGTH>030</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>V</MODIFIC>
+       <REQU_ENTRY>N</REQU_ENTRY>
+       <TC_HEADING>X</TC_HEADING>
+      </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_YDK_WEBS_ACT</CONT_NAME>
        <TYPE>CHECK</TYPE>
        <NAME>VIM_MARKED</NAME>
        <LINE>001</LINE>
@@ -585,6 +602,23 @@
        <INPUT_FLD>X</INPUT_FLD>
        <OUTPUT_FLD>X</OUTPUT_FLD>
       </RPY_DYFATC>
+      <RPY_DYFATC>
+       <CONT_TYPE>TABLE_CTRL</CONT_TYPE>
+       <CONT_NAME>TCTRL_YDK_WEBS_ACT</CONT_NAME>
+       <TYPE>TEMPLATE</TYPE>
+       <NAME>YDK_WEBS_ACT-HANDLER_ACTION</NAME>
+       <TEXT>______________________________</TEXT>
+       <LINE>001</LINE>
+       <COLUMN>006</COLUMN>
+       <LENGTH>030</LENGTH>
+       <VISLENGTH>030</VISLENGTH>
+       <HEIGHT>001</HEIGHT>
+       <FORMAT>CHAR</FORMAT>
+       <FROM_DICT>X</FROM_DICT>
+       <MODIFIC>X</MODIFIC>
+       <INPUT_FLD>X</INPUT_FLD>
+       <OUTPUT_FLD>X</OUTPUT_FLD>
+      </RPY_DYFATC>
      </FIELDS>
      <FLOW_LOGIC>
       <RPY_DYFLOW>
@@ -642,6 +676,9 @@
        <LINE>FIELD YDK_WEBS_ACT-HANDLER_NAME .</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
+       <LINE>FIELD YDK_WEBS_ACT-HANDLER_ACTION .</LINE>
+      </RPY_DYFLOW>
+      <RPY_DYFLOW>
        <LINE>MODULE SET_UPDATE_FLAG ON CHAIN-REQUEST.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
@@ -686,6 +723,7 @@
       <item>1</item>
       <item>3</item>
       <item>3</item>
+      <item>4</item>
       <item>4</item>
       <item>4</item>
       <item>4</item>
